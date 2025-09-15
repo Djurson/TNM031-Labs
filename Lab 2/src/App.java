@@ -1,16 +1,20 @@
-import java.math.BigInteger;
-import java.security.SecureRandom;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class App {
-    public static void main(String[] args) throws Exception {
-        BigInteger p = BigInteger.probablePrime(512, new SecureRandom());
-        BigInteger q = BigInteger.probablePrime(512, new SecureRandom());
+    public static void main(String[] args) throws IOException {
+        User bob = new User("Bob");
+        User alice = new User("Alice");
 
-        BigInteger n = p.multiply(q);
+        System.out.println("Send a message to Alice:");
+        String bobMessageString = (new BufferedReader(new InputStreamReader(System.in))).readLine();
 
-        BigInteger phiofn = (p.subtract(BigInteger.ONE)).multiply(q.subtract(BigInteger.ONE));
+        bob.SendMessage(bobMessageString, alice);
 
-        BigInteger e = new BigInteger("9007");
+        System.out.println("\nSend a message back to Bob:");
+        String aliceMessageString = (new BufferedReader(new InputStreamReader(System.in))).readLine();
 
+        alice.SendMessage(aliceMessageString, bob);
     }
 }
