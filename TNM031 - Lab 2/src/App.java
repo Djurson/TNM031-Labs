@@ -1,19 +1,16 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.math.BigInteger;
+import java.security.SecureRandom;
 
 public class App {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) throws Exception {
+        BigInteger p = BigInteger.probablePrime(512, new SecureRandom());
+        BigInteger q = BigInteger.probablePrime(512, new SecureRandom());
 
-        System.out.println("Name the first user: ");
-        String user1name = reader.readLine();
-        User user1 = new User(user1name, 512);
+        BigInteger n = p.multiply(q);
 
-        System.out.println("\nName the second user:");
-        String user2name = reader.readLine();
-        User user2 = new User(user2name, 512);
+        BigInteger phiofn = (p.subtract(BigInteger.ONE)).multiply(q.subtract(BigInteger.ONE));
+
+        BigInteger e = new BigInteger("9007");
 
     }
 }
