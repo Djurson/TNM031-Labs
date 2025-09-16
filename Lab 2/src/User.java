@@ -23,7 +23,7 @@ public class User {
     }
 
     private BigInteger encryptMessage(String message, User toUser) {
-        return new BigInteger(1, message.getBytes()).modPow(toUser.e, toUser.n);
+        return new BigInteger(message.getBytes()).modPow(toUser.e, toUser.n);
     }
 
     private String decryptMessage(BigInteger cipherMessage) {
