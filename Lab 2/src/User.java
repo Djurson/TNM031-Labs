@@ -11,6 +11,11 @@ public class User {
         name = _name;
         p = BigInteger.probablePrime(512, new SecureRandom());
         q = BigInteger.probablePrime(512, new SecureRandom());
+
+        while (q.equals(p)) {
+            q = BigInteger.probablePrime(512, new SecureRandom());
+        }
+
         n = p.multiply(q);
         phiofn = (p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE)));
         e = BigInteger.probablePrime(512 / 2, new SecureRandom());
