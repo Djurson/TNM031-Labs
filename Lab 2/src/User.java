@@ -19,6 +19,11 @@ public class User {
         n = p.multiply(q);
         phiofn = (p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE)));
         e = BigInteger.probablePrime(512 / 2, new SecureRandom());
+
+        while (!phiofn.gcd(e).equals(BigInteger.ONE)) {
+            e = BigInteger.probablePrime(512 / 2, new SecureRandom());
+        }
+
         d = e.modInverse(phiofn);
     }
 
