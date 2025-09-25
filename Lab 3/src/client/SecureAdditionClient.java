@@ -4,8 +4,6 @@ import java.io.*;
 import java.net.*;
 import java.security.KeyStore;
 import java.util.Scanner;
-
-import javax.annotation.processing.FilerException;
 import javax.net.ssl.*;
 
 public class SecureAdditionClient {
