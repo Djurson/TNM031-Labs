@@ -35,15 +35,13 @@ public class SecureAdditionServer {
 	private static final String END_SESSION = "/ES/";
 	private static final String UPLOAD_COMPLETE = "/UC/";
 
-	private
-
 	/**
 	 * Constructor
 	 * 
 	 * @param port The port where the server
 	 *             will listen for requests
 	 */
-	SecureAdditionServer(int port) {
+	private SecureAdditionServer(int port) {
 		this.port = port;
 	}
 
